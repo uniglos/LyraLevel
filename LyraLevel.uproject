@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.6",
+	"EngineAssociation": "5.8",
 	"Category": "Samples",
 	"Description": "",
 	"Modules": [
@@ -41,15 +41,11 @@
 			"Enabled": true
 		},
 		{
-			"Name": "D3DExternalGPUStatistics",
-			"Enabled": true,
-			"Optional": true,
-			"SupportedTargetPlatforms": [
-				"Win64"
-			]
+			"Name": "CommonLoadingScreen",
+			"Enabled": true
 		},
 		{
-			"Name": "CommonLoadingScreen",
+			"Name": "CommonStartupLoadingScreen",
 			"Enabled": true
 		},
 		{
@@ -176,13 +172,6 @@
 			"Enabled": false
 		},
 		{
-			"Name": "LuminPlatformFeatures",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"Lumin"
-			]
-		},
-		{
 			"Name": "MLSDK",
 			"Enabled": false
 		},
@@ -203,19 +192,6 @@
 				"XSX",
 				"WinGDK"
 			]
-		},
-		{
-			"Name": "EOSReservedHooks",
-			"Enabled": true,
-			"Optional": true
-		},
-		{
-			"Name": "OnlineSubsystemEOS",
-			"Enabled": true
-		},
-		{
-			"Name": "OnlineServicesEOS",
-			"Enabled": true
 		},
 		{
 			"Name": "OnlineServicesNull",
@@ -369,6 +345,45 @@
 		},
 		{
 			"Name": "Reflex",
+			"Enabled": true
+		},
+		{
+			"Name": "XInputDevice",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"WinGDK"
+			]
+		},
+		{
+			"Name": "GameInputWindows",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"WinGDK"
+			]
+		},
+		{
+			"Name": "AIAssistant",
+			"Enabled": true
+		},
+		{
+			"Name": "ToolsetRegistry",
+			"Enabled": true
+		},
+		{
+			"Name": "AllToolsets",
+			"Enabled": true
+		},
+		{
+			"Name": "PlayerInputDebugger",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		},
+		{
+			"Name": "PlatformDLC",
 			"Enabled": true
 		}
 	],
