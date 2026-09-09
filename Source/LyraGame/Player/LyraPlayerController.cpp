@@ -61,7 +61,6 @@ void ALyraPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	#if WITH_RPC_REGISTRY
-	FHttpServerModule::Get().StartAllListeners();
 	int32 RpcPort = 0;
 	if (FParse::Value(FCommandLine::Get(), TEXT("rpcport="), RpcPort))
 	{
@@ -548,11 +547,15 @@ void ALyraPlayerController::OnUnPossess()
 	// Make sure the pawn that is being unpossessed doesn't remain our ASC's avatar actor
 	if (APawn* PawnBeingUnpossessed = GetPawn())
 	{
-		if (UAbilitySystemComponent* ASC = UAbilitySystemGlobals::GetAbilitySystemComponentFromActor(PlayerState))
+		const APlayerState* ThePlayerState = PlayerState.Get();
+		if (IsValid(ThePlayerState))
 		{
-			if (ASC->GetAvatarActor() == PawnBeingUnpossessed)
+			if (UAbilitySystemComponent* ASC = UAbilitySystemGlobals::GetAbilitySystemComponentFromActor(ThePlayerState))
 			{
-				ASC->SetAvatarActor(nullptr);
+				if (ASC->GetAvatarActor() == PawnBeingUnpossessed)
+				{
+					ASC->SetAvatarActor(nullptr);
+				}
 			}
 		}
 	}
